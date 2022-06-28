@@ -20,10 +20,11 @@
 */
 
 Vue.component('greeting', {
-    template: `<div>
-    Hello, Vue Components, I am {{name}}!
-    <button v-on:click="changeName()">Change Name</button>
-</div>`,
+    template: `
+    <div>
+        Hello, Vue Components, I am {{name}}!
+        <button v-on:click="changeName()">Change Name</button>
+    </div>`,
     data: function () {
         return {
             name: "Heaton"
@@ -60,7 +61,11 @@ Vue.component('greeting', {
 */
 
 Vue.component('counter', {
-    template: `<div> {{count}} <button v-on:click="increaseCounter()">Increase Count</button> </div>`,
+    template: `
+    <div> 
+        {{count}} 
+        <button v-on:click="increaseCounter()">Increase Count</button> 
+    </div>`,
     data: function () { 
         return{
             count: 0,
