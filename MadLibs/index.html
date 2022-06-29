@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap"
+      rel="stylesheet"
+    />
+    <title>Component Mad Libs</title>
+  </head>
+  <body>
+    <div id="app" style="font-family: 'Coming soon', cursive">
+      <h1>Component Mad Libs</h1>
+      <div v-show="curDisplay == 0">
+        <h3>Create Your Own Mad Lib</h3>
+        <input type="text" placeholder="Random Person" v-model="randPerson" />
+        <br />
+        <input type="text" placeholder="Random Object" v-model="randObject" />
+        <br />
+        <input
+          type="Number"
+          placeholder="Random Number"
+          v-model="randNumber"
+        /><br />
+        <input
+          type="text"
+          placeholder="Random Building Material"
+          v-model="buildingMaterial"
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Favorite Celebrity"
+          v-model="favCelebrity"
+        />
+        <button v-on:click="createMadLib()">Click to Create Mad Lib</button>
+        <h3>Pessimistic Mad Lib</h3>
+        <pessimistic-mad-lib
+          v-bind:name="'Derek'"
+          v-bind:birthday="'August 9th'"
+          v-bind:favorite-food="'Panda Express'"
+          v-bind:favorite-number="12"
+          v-bind:favorite-movie="'Kangaroo Jack'"
+          v-bind:favorite-shopping-item="'guitars'"
+        >
+        </pessimistic-mad-lib>
+        <pessimistic-mad-lib
+          v-bind:name="'Keaton'"
+          v-bind:birthday="'February 17th'"
+          v-bind:favorite-food="'Salmon'"
+          v-bind:favorite-number="7"
+          v-bind:favorite-movie="'The Prestige'"
+          v-bind:favorite-shopping-item="'gerbals'"
+        >
+        </pessimistic-mad-lib>
+        <h3>Cheerful Mad Lib</h3>
+        <cheerful-mad-lib
+          v-bind:person="'Keaton'"
+          v-bind:random-object="'Mice'"
+          v-bind:random-number="7"
+          v-bind:building-material="'concrete'"
+          v-bind:favorite-celebrity="'Tom Cruise'"
+        >
+        </cheerful-mad-lib>
+      </div>
+      <div v-show="curDisplay == 1">
+        <h3>Your Mad Lib</h3>
+        <cheerful-mad-lib
+          v-bind:person="randPerson"
+          v-bind:random-object="randObject"
+          v-bind:random-number="randNumber"
+          v-bind:building-material="buildingMaterial"
+          v-bind:favorite-celebrity="favCelebrity"
+        >
+        </cheerful-mad-lib>
+        <button v-on:click="resetMadlib">
+          Click here to create new Madlib
+        </button>
+      </div>
+
+      <!-- Insert your own mad-lib component here -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+Mad Lib Instructions
+
+1. Add a second pessimistic-mad-lib element to your html, and fill in the props with your own values
+
+2. Create a new mad lib component (create a new story) that contains at least 4 string props and 1 number prop
+
+3. Add your-new-mad-lib element to your html and fill in the props with values
+
+4. Create inputs and have the webpage user enter their own mad-lib words
+    - Model each input value using your Vue Instance's data variables
+    - Add a button that, when clicked, shows a mad-lib element using their words
+    - (You should put the story on a 'page' separate from the inputs & button)
+
+===========================================================================================================
+
+If you're finished with the above:
+
+5. Create a reset button that lets the user enter new values
+
+6. Let the user select which story they want to provide words for
+    - (this may require a different number of inputs, depending on the story)
+
+ -->
